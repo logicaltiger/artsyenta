@@ -1,0 +1,32 @@
+div {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+div.container > div:hover {
+  background-color: #cfd8dc;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+
+.container {
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.left, .right, .middle {
+  display: table-cell;
+}

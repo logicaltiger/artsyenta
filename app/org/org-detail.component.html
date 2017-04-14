@@ -1,0 +1,63 @@
+<div class="table" *ngIf="org">
+	<h2>Edit {{org.name}} Details</h2>
+
+	<div class="row">
+		<span class="cell"><label>Name:</label></span>
+		<span class="cell"><input [(ngModel)]="org.name" id="name" placeholder="Name" /></span>
+	</div>
+	<div class="row">
+		<span class="cell"><label>Phone:</label></span>
+		<span class="cell"><input [(ngModel)]="org.phone" id="phone" placeholder="Phone" /></span>
+	</div>
+	<div class="row">
+		<span class="cell"><label>Email:</label></span>
+		<span class="cell"><input [(ngModel)]="org.email" id="email" placeholder="Email" /></span>
+	</div>
+
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label>Address:</label></span>
+		<span class="cell"><input [(ngModel)]="org.address1" id="address1" placeholder="Address" /></span>
+	</div>
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label></label></span>
+		<span class="cell"><input [(ngModel)]="org.address2" id="address2" placeholder="Second address line" /></span>
+	</div>
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label>City:</label></span>
+		<span class="cell"><input [(ngModel)]="org.city" id="city" placeholder="City" /></span>
+	</div>
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label>State:</label></span>
+		<span class="cell">
+			<select id="state" required [(ngModel)]="org.state" id="state">
+				<option *ngFor="let s of stateOptions" [value]="s.id">{{s.name}}</option>
+			</select>
+		</span>
+	</div>
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label>Zip Code:</label></span>
+		<span class="cell"><input [(ngModel)]="org.zip" id="zip" placeholder="Zip Code" /></span>
+	</div>
+
+	<div class="row">
+		<span class="cell">
+			<label *ngIf="org.isProviderOrg">Notes (Shown in Offers):</label>
+			<label *ngIf="!org.isProviderOrg">Notes</label>
+		</span>
+		<span class="cell"><textarea [(ngModel)]="org.notes" rows="4" cols="40" id="notes" placeholder="Notes" ></textarea></span>
+	</div>
+	<div class="row" *ngIf="org.isProviderOrg">
+		<span class="cell"><label>We are open to requests:</label></span>
+		<span class="cell"><input type="checkbox" [(ngModel)]="org.may_solicit" id="may_solicit" /></span>
+	</div>
+
+	<div id='errorMsg'>
+		{{ error ? error : "" }}
+	</div>
+
+	<div class="row">
+		<button (click)="cancel()" id="cancel">Discard changes</button>
+		&nbsp;&nbsp;
+		<button (click)="save()" id="save">Save changes</button>
+	</div>
+</div>
