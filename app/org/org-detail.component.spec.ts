@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { trigger, transition, animate, style, state } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -108,7 +110,7 @@ describe('OrgDetailComponent', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, RouterTestingModule ],
+      imports: [ FormsModule, RouterTestingModule, BrowserAnimationsModule ],
       providers : [
         { provide: DialogService, useClass: MockDialogService },
         { provide: GlobalsService, useClass: MockGlobalsService },

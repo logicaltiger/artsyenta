@@ -1,6 +1,5 @@
-import { Component, HostBinding, OnInit,  
-          trigger, transition,
-          animate, style, state } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { trigger, transition, animate, style, state } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { DialogService } from '../dialog.service';
@@ -13,16 +12,7 @@ import { OrgService } from './org.service';
   moduleId: module.id,
   selector: 'my-org-detail',
   templateUrl: 'org-detail.component.html',
-  styleUrls: ['org-detail.component.css']
-})
-
-/*
-  This program began with Angular core 2.2.4 and associated libraries.
-  In the process I updated to 2.4.0 and animations broke.  I commented
-  out the animations until I can update to a later consistent library state.
-
-  When ready put this back into the @Component section, after styleUrls.
-
+  styleUrls: ['org-detail.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*', style({ opacity: 1, transform: 'translateX(0)' })),
@@ -30,12 +20,9 @@ import { OrgService } from './org.service';
       transition(':leave', [ animate('0.5s ease-out', style({ opacity: 0, transform: 'translateY(100%)'})) ])
     ])
   ]
-*/
+})
 export class OrgDetailComponent implements OnInit {
-  /*
-    See above about animations and packages with Angular 2.4.0.
   @HostBinding('@routeAnimation') get routeAnimation() { return true; }
-  */
   @HostBinding('style.display') get display() { return 'block'; }
   @HostBinding('style.position') get position() { return 'absolute'; }
 

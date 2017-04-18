@@ -99,6 +99,9 @@ export class LoginComponent {
       If redirectUrl is set then this login intercepted a call from a non-logged user.
       Routing to that URL can continue.  If redirectUrl is not set then go to the
       default path for the user role.
+
+      Here and elsewhere: preserveQueryParams is deprecated.
+      See https://angular.io/docs/ts/latest/api/router/index/NavigationExtras-interface.html.
     */
     this.clearForm();
     let redirect = this.authService.getEffectiveRedirectUrl();
